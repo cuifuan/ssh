@@ -47,7 +47,7 @@
     <el-form name="login" class="from" ref="form" :model="form" label-width="120px"
     action="user_login.action" method="post">
         <h4>ssh框架demo演示(用户名：admin  密码：123456)</h4>
-        <h5><a href="https://gitee.com/ceilan/ssh" target="_blank">点击项目代码码云地址</a></h5>
+        <h5><a href="https://github.com/cuifuan/ssh" target="_blank" style="color: white">GitHub地址</a></h5>
         <el-form-item label="用户名">
             <el-input v-model="form.username" name="user.username" style="width:200px" placeholder="请输入用户名"></el-input>
         </el-form-item>
@@ -56,7 +56,7 @@
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="onSubmit('form')">登陆</el-button>
-            <el-button type="primary" native-type="submit">单点登陆</el-button>
+            <%--<el-button type="primary" native-type="submit">单点登陆</el-button>--%>
             <el-button type="info" native-type="reset">重置</el-button>
         </el-form-item>
     </el-form>
