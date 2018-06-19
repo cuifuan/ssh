@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 设置编码方式 -->
+    <!--<constant name="struts.i18n.encoding" value="UTF-8"/>-->
+    <!--设置为开发模式-->
+    <constant name="struts.devMode" value="true"/>
+    <!--struts2框架就会把bean转发给spring来创建，装配，注入-->
+    <constant name="struts.objectFactory" value="spring" />
+    <!--
+        reult中type的类型
+        1、dispatcher 默认的类型，相当于servlet的foward,服务器端跳转。客户端看到的是struts2中配置的地址，
+                       而不是真正页面的地址。一般用于跳转到jsp页面
+        2、redirect、redirect-action 　　页面重定向，客户端跳转；前者用于跳转到jsp页面，后者用于跳转到action
+        3、chain        　　将请求转发到一个action
+        4、stream        　　一般用于下载文件用
+        5、PlainText         　　普通文本
+        6、Velocity(Velocity)   用于与Velocity技术的集成
+        7、XSLT(xslt)        　　用于与XML/XSLT技术的集成
+        8、HttpHeader        　　返回报文头给用户
+        9、json-->
+    <package name="user" namespace="/" extends="json-default">
+        <action name="user_*" class="userAction" method="{1}">
+            <!--<result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>-->
+            <result name="success" type="json"/>
+                <!--<param name="result">1</param>-->
+            <!--</result>-->
+            <result name="error" type="json"/>
+                <!--<param name="result"></param>-->
+            <!--</result>-->
+        </action>
+    </package>
+</struts>
